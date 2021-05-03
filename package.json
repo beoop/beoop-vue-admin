@@ -1,0 +1,37 @@
+{
+  "name": "@beoop/beoop-vue-admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/beoop/beoop-vue-admin.git",
+  "author": "auojs <auojs@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "noEmit": "vue-tsc --noEmit",
+    "build": "vite build",
+    "git:docs": "bash deploy.sh"
+  },
+  "dependencies": {
+    "ant-design-vue": "2.1.2",
+    "axios": "^0.21.1",
+    "echarts": "^5.1.1",
+    "jsencrypt": "^3.2.0",
+    "localforage": "^1.9.0",
+    "mockjs": "^1.1.0",
+    "resize-observer-polyfill": "^1.5.1",
+    "vue": "^3.0.5",
+    "vue-i18n": "^9.1.6",
+    "vue-router": "^4.0.6",
+    "vuex": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/mockjs": "^1.0.3",
+    "@types/node": "^15.0.1",
+    "@vitejs/plugin-vue": "^1.2.2",
+    "@vitejs/plugin-vue-jsx": "^1.1.3",
+    "@vue/compiler-sfc": "^3.0.11",
+    "less": "^4.1.1",
+    "vite": "^2.2.3",
+    "vue-tsc": "^0.0.25"
+  }
+}

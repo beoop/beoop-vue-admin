@@ -1,3 +1,3 @@
-import BHeader from './BHeader.vue';
+import BHeader from './BHeader';
 
 export default BHeader;

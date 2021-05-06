@@ -3,6 +3,7 @@ import { win } from '@/utils';
 import config from '@/config';
 import { getToken } from '@/utils/util';
 import { permission } from '@/config/permission';
+import store from '@/store';
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -15,7 +16,13 @@ router.beforeEach((to, from, next) => {
       if (to.name === permission.visitorPage) {
         next({ name: config.app.homeName });
       } else {
-        next();
+        if (!store.getters.roles) {
+          store.dispatch('GetInfo').then((res) => {
+            next();
+          });
+        } else {
+          next();
+        }
       }
     } else {
       if (permission.whitelist?.includes(to.name as string)) {
@@ -29,8 +36,6 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to, from, failure) => {
   win.title(to).scrollTo(0, 0);
-
-  // permission.whitelist?.includes()
 });
 
 export default router;

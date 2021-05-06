@@ -2,13 +2,14 @@ import { RouteRecordRaw } from 'vue-router';
 import { DefaultLayout, RouteView } from '@/components/Layout';
 import appConfig from './app';
 
-const routes: Array<RouteConfig & RouteRecordRaw> = [
+const routes: (Beoop.RouteRecordRaw & RouteRecordRaw)[] = [
   {
     path: '',
     name: 'Home',
     redirect: { name: appConfig.homeName || 'Analysis' },
     component: DefaultLayout,
     children: [
+      // Dashboard
       {
         path: 'dashboard',
         name: 'Dashboard',
@@ -16,6 +17,7 @@ const routes: Array<RouteConfig & RouteRecordRaw> = [
           title: 'Dashboard',
           icon: 'icon-dashboard'
         },
+        redirect: { name: 'Analysis' },
         component: RouteView,
         children: [
           {
@@ -43,7 +45,17 @@ const routes: Array<RouteConfig & RouteRecordRaw> = [
             component: () => import('../views/dashboard/Workplace.vue')
           }
         ]
-      }
+      },
+
+      {
+        path: '',
+        name: 'doc',
+        meta: {
+          title: '文档',
+          href: 'https://www.baidu.com',
+          icon: 'icon-dashboard'
+        }
+      } as any
     ]
   },
   {

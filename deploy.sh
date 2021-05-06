@@ -14,12 +14,12 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy1'
+git commit -m 'init'
 
 # 修改上游分支名称
 git branch -m master main
 
-# 推送
-git push -f http://github.janedit.com/beoop/beoop-vue-admin.git main:main-hero
+# 推送 git@github.com:beoop/beoop-vue-admin.git
+git push -f git@github.com:beoop/beoop-vue-admin.git main:main-hero
 
 cd -

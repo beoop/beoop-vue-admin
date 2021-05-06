@@ -1,22 +1,28 @@
 import { defineComponent } from 'vue';
+import router from '@/router';
 import { useStore } from 'vuex';
 import { message } from 'ant-design-vue';
 import { QqOutlined, WechatFilled, GithubOutlined, AlipayCircleFilled } from '@ant-design/icons-vue';
+import config from '@/config';
 
 import { Logo } from '@/components';
-import { LoginForm } from '@/components/form';
+import { LoginForm } from '@/components/Form';
 import { loginModelProps } from './props';
 import './login.less';
 
 export default defineComponent({
-  components: { Logo, QqOutlined, WechatFilled, GithubOutlined, AlipayCircleFilled },
+  components: { QqOutlined, WechatFilled, GithubOutlined, AlipayCircleFilled },
   setup() {
     const store = useStore();
     const LoginFormProps = {
       onSubmit: (parameter: Beoop.Api.LoginParameter) => {
         store
           .dispatch('Login', parameter)
-          .then((res) => {})
+          .then((res) => {
+            store.dispatch('GetInfo').then((res) => {
+              router.push({ name: config.app.homeName });
+            });
+          })
           .catch((error) => {
             message.info(error);
           });

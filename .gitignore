@@ -1,6 +1,9 @@
 node_modules
 dist
 
+
+
 .vscode
+deploy.sh
 yarn.lock
 package-lock.json

@@ -58,14 +58,21 @@ const LoginForm = defineComponent({
 
     const { resetFields, validate, validateInfos } = useForm(loginRef, loginRulesRef);
 
+    const inputProps = (placeholder = '') => {
+      return {
+        size: 'large',
+        placeholder
+      };
+    };
+
     return () => {
       return (
         <a-form wrapperCol={{ span: 24 }}>
           <a-form-item {...validateInfos.username}>
-            <a-input v-model={[loginRef.username, 'value']} size="large" placeholder="账号 admin" />
+            <a-input v-model={[loginRef.username, 'value']} {...inputProps('账号 admin')} />
           </a-form-item>
           <a-form-item {...validateInfos.password}>
-            <a-input v-model={[loginRef.password, 'value']} size="large" placeholder="密码 admin" />
+            <a-input-password v-model={[loginRef.password, 'value']} {...inputProps('密码 admin')} />
           </a-form-item>
           <a-form-item wrapperCol={{ span: 24 }}>
             <a-button type="primary" size="large" onClick={onSubmit} block loading={loading.value}>

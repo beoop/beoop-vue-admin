@@ -4,14 +4,14 @@ import { MockOption } from './types';
 const responseBody = {
   message: '',
   timestamp: 0,
-  result: null,
+  data: null,
   code: 0,
   _status: null,
   _headers: {}
 };
 
 export const builder = (data: any, message: any, code: any = 0, headers: any = {}) => {
-  responseBody.result = data;
+  responseBody.data = data;
   if (message !== undefined && message !== null) {
     responseBody.message = message;
   }

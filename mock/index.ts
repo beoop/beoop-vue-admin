@@ -1,1 +1,1 @@
-import './services/auth';
+import './services/user';

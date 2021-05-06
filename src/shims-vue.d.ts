@@ -7,36 +7,6 @@ declare module '*.vue' {
 declare var __DEV__: boolean;
 
 /**
- * 路由 Meta 配置
- *
- * @interface RouteMetaConfig
- */
-interface RouteMetaConfig {
-  title: string;
-  icon?: any;
-
-  /**
-   * 权限许可
-   *
-   * @type {(string | string[])}
-   * @memberof RouteMetaConfig
-   */
-  permission?: string | string[];
-}
-
-/**
- * 路由配置
- *
- * @interface RouteConfig
- */
-interface RouteConfig {
-  icon?: string;
-  name: string;
-  meta?: RouteMetaConfig;
-  children?: RouteConfig[];
-}
-
-/**
  * 配置提交得 Api 地址
  *
  * @interface BLConfigBaseUrl

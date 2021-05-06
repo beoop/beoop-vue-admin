@@ -1,5 +1,5 @@
 <template>
-  <a-menu mode="horizontal" :selectedKeys="[route.name]" @select="onSelect">
+  <a-menu mode="horizontal" :selectedKeys="[route.name]" @click="onSelect">
     <sub-menu v-for="item in menuList" :key="item.name" :item="item" />
   </a-menu>
 </template>
@@ -20,9 +20,11 @@ export default defineComponent({
     const store = useStore();
 
     const onSelect = ({ key }: any) => {
-      router.push({
-        name: key
-      });
+      if (router.hasRoute(key)) {
+        router.push({
+          name: key
+        });
+      }
     };
 
     return {

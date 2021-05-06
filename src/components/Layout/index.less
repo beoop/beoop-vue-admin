@@ -1,0 +1,89 @@
+.setting {
+  display: flex;
+  flex-direction: column;
+
+  &-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  &-container {
+    display: block;
+    position: relative;
+  }
+  &-visible {
+    position: absolute !important;
+    bottom: 240px;
+    right: 300px;
+    z-index: 0;
+    font-size: 16px;
+  }
+}
+
+.b-header {
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+  .ant-layout-header {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    line-height: 48px;
+  }
+
+  .ant-menu-horizontal {
+    border-bottom: none;
+  }
+
+  &.header-fiexd {
+    position: fixed;
+    top: 0;
+    z-index: 3;
+
+    & + .ant-layout-content {
+      margin-top: 48px;
+      z-index: 2;
+    }
+  }
+}
+
+.ant-layout-sider {
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+  /* 侧栏菜单 */
+  .ant-menu-inline,
+  .ant-menu-vertical,
+  .ant-menu-vertical-left {
+    border-right: none;
+  }
+}
+
+.beoop-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  max-width: 200px;
+  height: 48px;
+  line-height: 48px;
+
+  img {
+    display: inline-block;
+    height: 32px;
+    vertical-align: middle;
+  }
+
+  h1 {
+    display: inline-block;
+    height: 32px;
+    margin: 0 0 0 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    vertical-align: middle;
+    color: #1890ff;
+  }
+}

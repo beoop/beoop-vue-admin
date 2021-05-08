@@ -1,9 +1,11 @@
 export default {
   layout: 'sider',
 
-  fixedHead: false,
+  fixedHead: true,
 
   multipleTabs: true,
 
-  fixedMultipleTabs: false
+  fixedMultipleTabs: true,
+
+  fixedSider: true
 } as Beoop.LayoutSetting;

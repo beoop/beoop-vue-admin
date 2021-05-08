@@ -1,4 +1,5 @@
 import { RouteRecordRaw } from 'vue-router';
+import i18n from '@/i18n';
 
 export function getMenuByRouter(routes: RouteConfig[], name = '', level: number = 2): RouteConfig[] {
   let res: RouteConfig[] = [];

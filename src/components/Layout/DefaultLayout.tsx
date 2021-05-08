@@ -10,22 +10,37 @@ export default defineComponent({
   setup() {
     const setting = useSetting();
 
+    const siderWidth = 260;
+
     return () => {
-      const logoVNode = <Logo mini={!isXs.value && siderCollapsed.value} />;
+      const logoVNode = <Logo mini={!isXs.value && siderCollapsed.value} style="border-bottom: 1px solid #000c17;" />;
       const headerStyle = computed(() => {
         const style: CSSProperties = {};
         if (setting.fixedHead.value) {
-          style.width = 'calc(100% - 0px)';
+          style.width = `calc(100% - ${
+            setting.layout.value === 'sider' && setting.fixedSider.value
+              ? siderCollapsed.value
+                ? collapsedWidth.value
+                : siderWidth
+              : 0
+          }px)`;
         }
         return style;
       });
+
       const headerCls = computed(() => {
         return { 'header-fiexd': setting.fixedHead.value };
       });
 
       const containerVNode: VNode[] = [];
-      const menuVNode = <BMenu style="flex: 1 1 auto;" mode={menuMode.value} />;
-      const multipleTabs = <MultipleTabs />;
+      const menuVNode = (
+        <BMenu
+          style="flex: 1 1 auto;overflow-y: auto; height: calc(100vh - 48px);"
+          mode={menuMode.value}
+          theme="dark"
+        />
+      );
+      const multipleTabs = <MultipleTabs style="padding: 4px 12px;" />;
       const layoutVNode: VNode[] = [logoVNode, menuVNode];
       const drawerVNode = (
         <a-drawer
@@ -45,9 +60,16 @@ export default defineComponent({
       // const headerBottomVNode = setting.multipleTabs.value && setting.fixedMultipleTabs.value && multipleTabs;
       const headerVNode = <BHeader style={headerStyle.value} class={headerCls.value}></BHeader>;
       const mainVNode = (
-        <a-layout-content style="overflow: hidden;padding: 12px;">
+        <a-layout-content
+          style={{
+            overflow: 'hidden',
+            marginTop: setting.fixedHead.value && setting.fixedMultipleTabs.value ? '88px' : null
+          }}
+        >
           {setting.multipleTabs.value && !setting.fixedMultipleTabs.value && multipleTabs}
-          <router-view />
+          <div style="padding: 12px 24px;">
+            <router-view />
+          </div>
         </a-layout-content>
       );
       const footerVNode = (
@@ -56,8 +78,14 @@ export default defineComponent({
         </a-layout-footer>
       );
       const basicVNode: VNode[] = [headerVNode, mainVNode, footerVNode];
+
       const siderVNode = (
-        <a-layout-sider collapsedWidth={collapsedWidth.value} collapsed={siderCollapsed.value}>
+        <a-layout-sider
+          width={siderWidth}
+          class={{ 'fiexd-sider': setting.fixedSider.value }}
+          collapsedWidth={collapsedWidth.value}
+          collapsed={siderCollapsed.value}
+        >
           {{ default: () => setting.layout.value === 'sider' && layoutVNode }}
         </a-layout-sider>
       );
@@ -71,7 +99,18 @@ export default defineComponent({
           basicVNode
         );
       containerVNode.push(
-        <a-layout style="min-height: 100vh;">
+        <a-layout
+          style={{
+            minHeight: '100vh',
+            marginLeft: `${
+              setting.layout.value === 'sider' && setting.fixedSider.value
+                ? siderCollapsed.value
+                  ? collapsedWidth.value
+                  : siderWidth
+                : 0
+            }px`
+          }}
+        >
           {isXs.value && drawerVNode}
           {layoutContentVNode}
         </a-layout>

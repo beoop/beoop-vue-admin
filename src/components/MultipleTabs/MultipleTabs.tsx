@@ -1,6 +1,6 @@
 import { defineComponent, VNodeChild } from 'vue';
 import {
-  DownOutlined,
+  MoreOutlined,
   LeftSquareOutlined,
   RightSquareOutlined,
   CloseSquareOutlined,
@@ -43,39 +43,37 @@ export default defineComponent({
     };
 
     return () => (
-      <>
-        <a-tabs activeKey={activeKey.value} {...multipleTabProps}>
-          {{
-            default: () =>
-              tabs.value.map((item) => <a-tab-pane key={item.key} tab={item.key} closable={item.closable} />),
-            tabBarExtraContent: () => (
-              <a-dropdown>
-                {{
-                  default: () => <a-button>{{ icon: () => <DownOutlined /> }}</a-button>,
-                  overlay: () => (
-                    <a-menu onClick={onAction}>
-                      <a-menu-item key="left">
-                        <LeftSquareOutlined /> 关闭左侧{' '}
-                      </a-menu-item>
-                      <a-menu-item key="right">
-                        <RightSquareOutlined /> 关闭右侧{' '}
-                      </a-menu-item>
-                      <a-menu-item key="other">
-                        <CloseSquareOutlined /> 关闭其它{' '}
-                      </a-menu-item>
-                      <a-menu-item key="all">
-                        {' '}
-                        <CloseOutlined />
-                        关闭全部{' '}
-                      </a-menu-item>
-                    </a-menu>
-                  )
-                }}
-              </a-dropdown>
-            )
-          }}
-        </a-tabs>
-      </>
+      <a-tabs activeKey={activeKey.value} {...multipleTabProps}>
+        {{
+          default: () =>
+            tabs.value.map((item) => <a-tab-pane key={item.key} tab={item.key} closable={item.closable} />),
+          tabBarExtraContent: () => (
+            <a-dropdown>
+              {{
+                default: () => <a-button>{{ icon: () => <MoreOutlined /> }}</a-button>,
+                overlay: () => (
+                  <a-menu onClick={onAction}>
+                    <a-menu-item key="left">
+                      <LeftSquareOutlined /> 关闭左侧{' '}
+                    </a-menu-item>
+                    <a-menu-item key="right">
+                      <RightSquareOutlined /> 关闭右侧{' '}
+                    </a-menu-item>
+                    <a-menu-item key="other">
+                      <CloseSquareOutlined /> 关闭其它{' '}
+                    </a-menu-item>
+                    <a-menu-item key="all">
+                      {' '}
+                      <CloseOutlined />
+                      关闭全部{' '}
+                    </a-menu-item>
+                  </a-menu>
+                )
+              }}
+            </a-dropdown>
+          )
+        }}
+      </a-tabs>
     );
   }
 });

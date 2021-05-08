@@ -18,10 +18,7 @@ export default defineComponent({
           {{
             default: () => (
               <action-button style="flex:0 0 auto">
-                <a-avatar
-                  style="margin-right: 6px"
-                  src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2062164223,3783917881&fm=26&gp=0.jpg"
-                />
+                <a-avatar style="margin-right: 6px" src={store.state.user.avatar} />
                 {store.state.user.username}
               </action-button>
             ),

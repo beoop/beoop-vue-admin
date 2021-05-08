@@ -33,6 +33,10 @@ export default defineComponent({
                 </a-select>
               </div>
               <div class="setting-cell">
+                <span>固定侧栏</span>
+                <a-switch size="small" v-model={[setting.fixedSider.value, 'checked']} />
+              </div>
+              <div class="setting-cell">
                 <span>固定 Header</span>
                 <a-switch size="small" v-model={[setting.fixedHead.value, 'checked']} />
               </div>

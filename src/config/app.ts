@@ -1,4 +1,4 @@
-import logo from '@/assets/logo.png';
+import logo from '@/assets/logo.svg';
 
 export default {
   logo: logo,
@@ -7,11 +7,11 @@ export default {
 
   cookieExpires: '',
 
-  useI18n: false,
+  useI18n: true,
 
   baseUrl: 'http://www.janedit.com/',
 
-  homeName: 'Analysis',
+  homeName: 'Workplace',
 
   public: []
-} as AppState;
+} as Beoop.AppState;

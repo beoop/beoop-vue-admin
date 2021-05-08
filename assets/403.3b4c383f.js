@@ -1,0 +1,1 @@
+import{r as t,o as e,c as a,w as r,e as s,g as o}from"./vendor.d0315eed.js";const u={},n=o("Back Home");u.render=function(o,u){const c=t("a-button"),d=t("a-result");return e(),a(d,{status:"403",title:"403","sub-title":"Sorry, you are not authorized to access this page."},{extra:r((()=>[s(c,{type:"primary"},{default:r((()=>[n])),_:1})])),_:1})};export default u;

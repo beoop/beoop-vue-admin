@@ -1,0 +1,1 @@
+import{r as t,o as e,c as r,w as s,e as a,g as o}from"./vendor.d0315eed.js";const n={},u=o("Back Home");n.render=function(o,n){const d=t("a-button"),i=t("a-result");return e(),r(i,{status:"500",title:"500","sub-title":"Sorry, the server is wrong."},{extra:s((()=>[a(d,{type:"primary"},{default:s((()=>[u])),_:1})])),_:1})};export default n;

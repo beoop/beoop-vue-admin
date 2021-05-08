@@ -1,0 +1,1 @@
+import{r as t,o as e,c as s,w as a,e as r,g as o}from"./vendor.d0315eed.js";const n={},u=o("Back Home");n.render=function(o,n){const d=t("a-button"),i=t("a-result");return e(),s(i,{status:"404",title:"404","sub-title":"Sorry, the page you visited does not exist."},{extra:a((()=>[r(d,{type:"primary"},{default:a((()=>[u])),_:1})])),_:1})};export default n;
